@@ -1,0 +1,127 @@
+// #include<iostream>
+// using namespace std;
+// #define MaxSize 256//留一个位置给\0
+// typedef struct SString
+// {
+// char T[MaxSize];
+// int Length;
+// }SString;
+// void index_KMP(SString M,SString S,int pos)
+// {
+//     int i=pos,j=1;
+// while(i<M.Length&&j<S.Length)
+// {
+//     if(j==0||M.T[i]==S.T[j])
+//     {
+//         i++;
+//         j++;
+//     }
+//     else 
+//     {
+//         int next[S.Length];
+//     get_next(S,next)
+//     j=next[j];
+//     }
+// }
+// if(j==S.Length) return i-S>Length;//注意
+// else return 0;
+// }
+// void get_next(SString T,int (&next)[])//不能使用引用数组?，这是KMP算法的核心
+// {
+// int i=1;next[1]=0;int j=0;
+// while(i<T.Length)//此时length为n+1
+// {
+//     if(j==0||T.T[i]==T.T[j])//当你构造下一个数组时，它的长度通常为 n + 1，以适应从 1 到 n 的索引
+//     {
+//         next[++i]=++j;
+//     }
+//     else 
+//     {
+//         j=next[j];
+//     }
+// }
+// }
+
+
+
+
+// int main2()
+// {
+
+
+
+//     return 0;
+// }
+// /* 
+// #include <iostream>
+// using namespace std;
+
+// #define MaxSize 256 // Reserve space for '\0'
+
+// // Definition of SString structure
+// typedef struct SString {
+//     char T[MaxSize];
+//     int Length;
+// } SString;
+
+// // Function to compute the next array for KMP
+// void get_next(SString S, int next[]) {
+//     int i = 1, j = 0;
+//     next[0] = 0; // Typically, next[0] is initialized to 0
+
+//     while (i < S.Length) {
+//         if (j == 0 || S.T[i] == S.T[j]) {
+//             i++;
+//             j++;
+//             next[i] = j; // Store the length of the longest prefix which is also a suffix
+//         } else {
+//             j = next[j]; // Fall back to the previous longest prefix suffix
+//         }
+//     }
+// }
+
+// // KMP search function
+// int index_KMP(SString M, SString S, int pos) {
+//     int i = pos, j = 0; // Start matching from the given position
+//     int next[S.Length]; // Declare next array
+//     get_next(S, next); // Build the next array
+
+//     while (i < M.Length && j < S.Length) {
+//         if (j == -1 || M.T[i] == S.T[j]) { // Note: j starts from 0, hence -1 is used
+//             i++;
+//             j++;
+//         } else {
+//             j = next[j]; // Use the next array to skip comparisons
+//         }
+//     }
+
+//     if (j == S.Length) {
+//         return i - S.Length; // Match found, return the starting index
+//     } else {
+//         return -1; // No match found
+//     }
+// }
+
+// int main() {
+//     SString text, pattern;
+    
+//     // Example text initialization
+//     strcpy(text.T, "ababcabcacbab");
+//     text.Length = strlen(text.T);
+
+//     // Example pattern initialization
+//     strcpy(pattern.T, "abc");
+//     pattern.Length = strlen(pattern.T);
+
+//     // Search for the pattern in the text starting from position 0
+//     int result = index_KMP(text, pattern, 0);
+//     if (result != -1) {
+//         cout << "Pattern found at index: " << result << endl;
+//     } else {
+//         cout << "Pattern not found" << endl;
+//     }
+
+//     return 0;
+// }
+
+// */
